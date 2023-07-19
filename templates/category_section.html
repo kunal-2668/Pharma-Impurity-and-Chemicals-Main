@@ -1,0 +1,99 @@
+
+<style>
+  input[type="radio"]{
+    visibility:hidden;
+}
+.designedalpabets{
+  color: white;
+  font-size:30px;
+  cursor: pointer;
+}
+</style>
+
+
+<section class="cat_section">
+    <div class="container edufair-slider-text">
+      <div class="fadeInLeft">
+        <label for="A"  class="designedalpabets">A</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'A' %}" id="A"></input>
+        <label for="B" class="designedalpabets" >B</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'D' %}" id="B"></input>
+        <label for="C" class="designedalpabets" >C</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'C' %}" id="C"></input>
+        <label for="D" class="designedalpabets" >D</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'D' %}" id="D"></input>
+        <label for="E" class="designedalpabets"> E</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'E' %}" id="E"></input>
+        <label for="F" class="designedalpabets"> F</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'F' %}" id="F"></input>
+        <label for="G" class="designedalpabets"> G</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'G' %}" id="G"></input>
+        <label for="H" class="designedalpabets"> H</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'H' %}" id="H"></input>
+        <label for="I" class="designedalpabets">I </label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'I' %}" id="I"></input>
+        <label for="J" class="designedalpabets"> J</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'J' %}" id="J"></input>
+        <label for="K" class="designedalpabets"> K</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'K' %}" id="K"></input>
+        <label for="L" class="designedalpabets"> L</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'L' %}" id="L"></input>
+        <label for="M" class="designedalpabets"> M</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'M' %}" id="M"></input>
+        <label for="N" class="designedalpabets"> N</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'N' %}" id="N"></input>
+        <label for="O" class="designedalpabets"> O</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'O' %}" id="O"></input>
+        <label for="P" class="designedalpabets"> P</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'P' %}" id="P"></input>
+        <label for="Q" class="designedalpabets"> Q</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'Q' %}" id="Q"></input>
+        <label for="R" class="designedalpabets"> R</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'R' %}" id="R"></input>
+        <label for="S" class="designedalpabets"> S</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'S' %}" id="S"></input>
+        <label for="T" class="designedalpabets"> T</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'T' %}" id="T"></input>
+        <label for="U" class="designedalpabets"> U</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'U' %}" id="U"></input>
+        <label for="V" class="designedalpabets">V </label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'V' %}" id="V"></input>
+        <label for="W" class="designedalpabets"> W</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'W' %}" id="W"></input>
+        <label for="X" class="designedalpabets"> X</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'X' %}" id="X"></input>
+        <label for="Y" class="designedalpabets"> Y</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'Y' %}" id="Y"></input>
+        <label for="Z" class="designedalpabets"> Z</label>
+        <input type="radio" name="filterdata" class="btn" href="{% url 'filter_category' 'Z' %}" id="Z"></input>
+      </div>
+    </div>
+  </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+    $('.btn').click(function(){
+      let aid;
+      aid=$(this).attr("href");
+      let A=document.getElementsByClassName('btn');
+      let last = aid.split("/")[2];
+      $.ajax({
+        url: `/filter_category/${last}`,
+        type: "get",
+        datatype: "json",
+  
+        success: function(res){
+          console.log(res)
+          document.getElementById('data').innerHTML = res;
+        }
+      });
+      // console.log(aid);
+      // let A=document.getElementsByClassName('btn');
+      // let last = aid.split("/")[2]
+      // console.log(last)
+      // let aja = $.ajax(`/filter_category/${last}`,type="get");
+      // console.log(aja);
+    });
+    })
+  </script>

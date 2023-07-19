@@ -1,0 +1,10 @@
+asgiref==3.7.2
+Django==4.2.2
+django-autoslug==1.9.9
+django-chartjs==2.3.0
+django-jazzmin==2.6.0
+django-phonenumber-field==7.1.0
+phonenumbers==8.13.14
+Pillow==9.5.0
+sqlparse==0.4.4
+tzdata==2023.3

@@ -1,0 +1,452 @@
+{% extends 'base.html' %} {% block content %}
+
+<style>
+  .bold{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+</style>
+
+
+
+<!-- 
+<section class="inner-banner p-0 product-banner_prdct_view">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h2 class="main_heading">{{product.product_name}}</h2>
+      </div>
+      <div class="col-12">
+        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item"><a href="#">{{product.category}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{product.product_name}}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inner-banner p-0 banner_prdct_view my-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 product-image text-center">
+        <a href="{{product.product_image.url}}" class="text-center text-decoration-none" data-fancybox="">
+          <picture> <img src="{{product.product_image.url}}" style="height: 400px; object-fit: cover" class="img-fluid" alt="Bacitracin" /> </picture>
+        </a>
+      </div>
+
+      <div class="col-md-6 ps-md-4 pt-md-3">
+        <div class="product-details">
+          <ul class="list-unstyled">
+            <div class="row">
+              <div class="col-4 bold">Chemical Name</div>
+              <div class="col-8 fs-5">{{product.chemical_name}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">CAT. No.</div>
+              <div class="col-8 fs-5">{{product.cat_no}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">CAS. No.</div>
+              <div class="col-8 fs-5">{{product.cas_number}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Mol. Formula</div>
+              <div class="col-8 fs-5">{{product.molecular_formula}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Mol. Weight</div>
+              <div class="col-8 fs-5">{{product.molecular_weight}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Solubility</div>
+              <div class="col-8 fs-5">{{product.solubility}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Storage</div>
+              <div class="col-8 fs-5">{{product.storage}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Keywords</div>
+              <div class="col-8 fs-5">{{product.keywords}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Purity by HPLC</div>
+              <div class="col-8 fs-5">{{product.purity_by_HPLC}}%</div>
+            </div>
+            <div class="row">
+              <div class="col-4 bold">Inventory Status</div>
+              <div class="col-8 fs-5">{{product.inventory_status}}</div>
+            </div>
+          </ul>
+        </div>  
+       <div class="product-details">
+          <ul class="list-unstyled">
+            <li>Chemical Name<span style="word-wrap: inherit;" >{{product.chemical_name}}</span></li>
+            <li>CAT. No.<span>{{product.cat_no}}</span></li>
+            <li>CAS. No.<span>{{product.cas_number}}</span></li>
+            <li>Mol. Formula<span>{{product.molecular_formula}}</span></li>
+            <li>Mol. Weight<span>{{product.molecular_weight}}</span></li>
+            <li>Solubility<span>{{product.solubility}}</span></li>
+            <li>Storage<span>{{product.storage}}</span></li>
+            <li>Keywords<span>{{product.keywords}}</span></li>
+            <li>Purity by HPLC<span>{{product.purity_by_HPLC}}%</span></li>
+            <li>Inventory Status <span>{{product.inventory_status}}</span></li>
+          </ul>
+        </div> 
+
+        <div class="product-description table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Pack Size</th>
+                <th scope="col">Unit of Measure</th>
+                <th scope="col">Number of Packs</th>
+              </tr>
+            </thead>
+            <tbody class="prodetail">
+              <tr>
+                <td>
+                  <div class="input-group quantity-input-group mb-3">
+                    <input type="text" class="form-control packsize" placeholder="100" name="packsize1" value="100" />
+                  </div>
+                </td>
+                <td>
+                  <div class="input-group quantity-input-group mb-3">
+                    <select class="form-control sizeweight" name="sizeweight1">
+                      <option value="mg">MG</option>
+                      <option value="ml">ML</option>
+                      <option value="gm">GM</option>
+                    </select>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="product-total row align-items-center">
+          <div class="product-button col-md-8">
+            <a class="btn btn-lg main-btn" onclick="nonloginUser()">Add to Request List</a>
+          </div>
+        </div>
+        <div class="quick-inquiry mb-4"><a href="#">Make a quick inquiry</a></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- main-area -->
+<main>
+
+  <!-- breadcrumb-area -->
+  <!-- <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay" data-background="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/banner/breadcrumb-01.jpg">
+     <div class="container">
+        <div class="row align-items-center">
+           <div class="col-xl-7 col-lg-12 col-md-12 col-12">
+              <div class="tp-breadcrumb">
+                 <h2 class="tp-breadcrumb__title">Product Details</h2>
+              </div>
+           </div>
+           <div class="col-xl-5 col-lg-12 col-md-12 col-12">
+              
+           </div>
+        </div>
+     </div>
+  </section> -->
+  <!-- breadcrumb-area-end -->
+
+  <!-- shope-details-area -->
+  <section class="shop-area pt-120 pb-70">
+     <div class="container">
+        <div class="shop-left-right ml-130 mr-130">
+           <div class="row">
+              <div class="col-lg-6 col-md-6">
+                 <div class="productthumb mb-40 wow fadeInRighLeft" data-wow-delay=".4s">
+                    <img src="{{product.product_image.url}}" alt="product-thumb">
+                 </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                 <div class="product mb-40 ml-20 wow fadeInRighRight" data-wow-delay=".4s">
+                    <div class="product__details-content mb-40">
+                       <h5 class="product-dtitle mb-20">{{product.product_name}}</h5>
+                       <p>Chemical Name :<br> {{product.chemical_name}}</p>
+                       <!-- <div class="product-dinfo mt-25">
+                          <div class="product-rating">
+                             <a href="#"><i class="fa-solid fa-star"></i></a>
+                             <a href="#"><i class="fa-solid fa-star"></i></a>
+                             <a href="#"><i class="fa-solid fa-star"></i></a>
+                             <a href="#"><i class="fa-light fa-star"></i></a>
+                             <a href="#"><i class="fa-light fa-star"></i></a>
+                          </div>
+                          <span class="review-count">(4 customer review)</span>
+                       </div> -->
+                       <!-- <h5 class="product-dprice mt-30">$28.00 <del>/38</del></h5> -->
+                       <!-- <h6 class="product-model-title mt-30 mb-15">Choose Color</h6>
+                       <div class="product-model-list mb-20">
+                          <a href="#">tyk</a>
+                          <a href="#">ffd2</a>
+                          <a href="#">23tt</a>
+                          <a href="#">r454</a>
+                          <a href="#">45hy</a>
+                       </div> -->
+                       <div class="pro-quan-area d-sm-flex align-items-center mb-15">
+                          <div class="product-quantity-title mr-25">
+                             <label>Quantity</label>
+                          </div>
+                          <form action="{% url 'add2cart' product.slug_id %}" method="post">
+                           {% csrf_token %}
+                             <div class="tp-product-quantity mt-10 mb-10">
+                                <!-- <span class="cart-minus"><i class="fa-solid fa-arrow-left" onclick="handleclick1()" ></i></span>
+                                 <input class="" type="text" id="quantt"  value="1"/>
+                                 <span class="cart-plus"><i class="fa-solid fa-arrow-right" onclick="handleclick2()" ></i></span> -->
+                                 <button type="button" class="btn btn-outline-danger" onclick="handleclick1()" >-</button>
+                                 <input type="text" name="quantity" id="quantt" value="1" step="any">MG
+                                 <button type="button" class="btn btn-outline-primary" onclick="handleclick2()" >+</button>
+                              </div>
+                           </div>
+                           <div class="product-button">
+                              <!-- <a href="" class="tp-btn mr-20">Add RFQ List</a> -->
+                              <button class="tp-btn mr-20">Add RFQ List</button>
+                              <!-- <a href="#" class="tp-btn-second">Buy now</a> -->
+                           </div>
+                        </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="productdetails pt-35 pb-75">
+              <div class="row">
+                 <div class="col-lg-12">
+                    <div class="product-additional-tab">
+                       <div class="pro-details-nav mb-40">
+                          <ul class="nav nav-tabs pro-details-nav-btn" id="myTabs" role="tablist">
+                            
+                             <li class="nav-item" role="presentation">
+                                <button class="nav-links active" id="information-tab" data-bs-toggle="tab" data-bs-target="#additional-information" type="button" role="tab" aria-controls="additional-information" aria-selected="true">Additional Info</button>
+                             </li>
+                            
+                          </ul>
+                       </div>
+                       <div class="tab-content tp-content-tab" id="myTabContent-2">
+                        
+                          <div class="tab-pane fade show active" id="additional-information" role="tabpanel"
+                          aria-labelledby="information-tab">
+                             <div class="product__details-info table-responsive">
+                                <table class="table table-striped">
+                                   <tbody>
+                                      <tr>
+                                         <td class="add-info">Chemical Name</td>
+                                         <td class="add-info-list">{{product.chemical_name}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">CAT NO.</td>
+                                         <td class="add-info-list">{{product.cat_no}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Molecular Formula</td>
+                                         <td class="add-info-list">{{product.molecular_formula}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Molecular Weight</td>
+                                         <td class="add-info-list">{{product.molecular_weight}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Cas No.</td>
+                                         <td class="add-info-list">{{product.cas_number}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Solubility</td>
+                                         <td class="add-info-list"> {{product.solubility}} </td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Storage</td>
+                                         <td class="add-info-list"> {{product.storage}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Keywords</td>
+                                         <td class="add-info-list"> {{product.keywords}}</td>
+                                      </tr>
+                                      <tr>
+                                         <td class="add-info">Purity by HPLC</td>
+                                         <td  class="add-info-list">{{product.purity_by_HPLC}}%</td>
+                                      </tr>
+                                      <tr>
+                                       <td class="add-info">Inventory Status</td>
+                                       <td  class="add-info-list">{{product.inventory_status}}</td>
+                                    </tr>
+                                   </tbody>
+                               </table>
+                             </div>
+                          </div>
+                          
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <!-- <div class="tpproductitem">
+              <div class="row">
+                 <div class="col-lg-12">
+                    <h5 class="product-dtitle mb-50">Related Product</h5>
+                 </div>
+              </div>
+           </div>
+           <div class="swiper-container shop-slider-active">
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide">
+                    <div class="tpshopitem mb-50">
+                       <div class="tpshopitem__thumb p-relative fix mb-35">
+                          <a href="#"><img src="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/shop/shop-09.jpg" alt="shop-thumb"></a>
+                          <div class="tpshopitem__thumb-icon">
+                             <a href="#"><i class="fal fa-eye"></i></a>
+                             <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                             <a href="#"><i class="fal fa-heart"></i></a>
+                          </div>
+                       </div>
+                       <div class="tpshopitem__content text-center">
+                          <span class="tpshopitem__title mb-5"><a href="#">Sphygmomanometer</a></span>
+                          <p>$66.00</p>
+                          <div class="tpshopitem__review">
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="swiper-slide">
+                    <div class="tpshopitem mb-50">
+                       <div class="tpshopitem__thumb p-relative fix mb-35">
+                          <a href="#"><img src="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/shop/shop-10.jpg" alt="shop-thumb"></a>
+                          <div class="tpshopitem__thumb-icon">
+                             <a href="#"><i class="fal fa-eye"></i></a>
+                             <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                             <a href="#"><i class="fal fa-heart"></i></a>
+                          </div>
+                       </div>
+                       <div class="tpshopitem__content text-center">
+                          <span class="tpshopitem__title mb-5"><a href="#">Glucometer</a></span>
+                          <p>$46.00</p>
+                          <div class="tpshopitem__review">
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-solid fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="swiper-slide">
+                    <div class="tpshopitem mb-50">
+                       <div class="tpshopitem__thumb p-relative fix mb-35">
+                          <a href="#"><img src="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/shop/shop-11.jpg" alt="shop-thumb"></a>
+                          <div class="tpshopitem__thumb-icon">
+                             <a href="#"><i class="fal fa-eye"></i></a>
+                             <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                             <a href="#"><i class="fal fa-heart"></i></a>
+                          </div>
+                       </div>
+                       <div class="tpshopitem__content text-center">
+                          <span class="tpshopitem__title mb-5"><a href="#">Oxygen Breathing Machine</a></span>
+                          <p>$70.00</p>
+                          <div class="tpshopitem__review">
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="swiper-slide">
+                    <div class="tpshopitem mb-50">
+                       <div class="tpshopitem__thumb p-relative fix mb-35">
+                          <a href="#"><img src="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/shop/shop-12.jpg" alt="shop-thumb"></a>
+                          <div class="tpshopitem__thumb-icon">
+                             <a href="#"><i class="fal fa-eye"></i></a>
+                             <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                             <a href="#"><i class="fal fa-heart"></i></a>
+                          </div>
+                       </div>
+                       <div class="tpshopitem__content text-center">
+                          <span class="tpshopitem__title mb-5"><a href="#">Oxygen Breathing Machine</a></span>
+                          <p>$70.00</p>
+                          <div class="tpshopitem__review">
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                             <i class="fa-regular fa-star"></i>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </section> -->
+  <!-- shope-details-area-end -->
+
+</main>
+<!-- main-area-end -->
+
+
+
+<script>
+   let quan = document.getElementById('quantt')
+   let total = 1
+   const handleclick1 = () =>{
+      if (total <= 1){
+         quan.setAttribute('value',total)
+      } 
+      else{
+         total -=1
+         quan.setAttribute('value',total)
+      }
+   }
+
+   const handleclick2 = () =>{
+      total +=1
+      quan.setAttribute('value',total)
+      
+   }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var getlink = document.getElementById("pageproductlink");
+  getlink.classList.add("active");
+</script>
+{% endblock%}

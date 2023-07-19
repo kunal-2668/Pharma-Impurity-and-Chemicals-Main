@@ -1,0 +1,120 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+
+
+
+
+      <!-- main-area -->
+      <main>
+
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay" data-background="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/banner/breadcrumb-01.jpg">
+           <div class="container">
+              <div class="row align-items-center">
+                 <div class="col-xl-7 col-lg-12 col-md-12 col-12">
+                    <div class="tp-breadcrumb">
+                       <h2 class="tp-breadcrumb__title">My Cart</h2>
+                    </div>
+                 </div>
+                 <div class="col-xl-5 col-lg-12 col-md-12 col-12">
+                  
+                 </div>
+              </div>
+           </div>
+        </section>
+        <!-- breadcrumb-area-end -->
+
+        <!-- cart area -->
+        <section class="cart-area pt-130 pb-120 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
+           <div class="container">
+           <div class="row">
+              <div class="col-12">
+                    <form action="#">
+                       <div class="table-content table-responsive">
+                          {% if cart_items %}
+                          <table class="table">
+                                <thead>
+                                   <tr>
+                                      <th class="product-thumbnail">Images</th>
+                                      <th class="cart-product-name">Product</th>
+                                      <!-- <th class="product-price">Unit Price</th> -->
+                                      <th class="product-quantity">Quantity</th>
+                                      <!-- <th class="product-subtotal">Total</th> -->
+                                      <th class="product-remove">Remove</th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                 {% for i in cart_items %}
+                                   <tr>
+                                      <td class="product-thumbnail"><a href="#">
+                                       {% for j in product_img %}
+                                       {% if j.product_name == i.product_name %}
+                                        <!-- <img src="https://weblearnbd.net/tphtml/bioxlab/bioxlab/assets/img/shop/shop-02.jpg" alt=""></a></td> -->
+                                        <img src="{{j.product_image.url}}" alt=""></a></td>
+                                       {% endif %}
+                                        {% endfor %}
+                                      <td class="product-name">
+                                        <a href="#">{{i.product_name}}</a></td>
+                                      <!-- <td class="product-price">
+                                        <span class="amount">$130.00</span></td> -->
+                                      <td class="product-quantity">
+                                            <!-- <span class="cart-minus">-</span> -->
+                                            <!-- <input class="cart-input" type="text" value="1"/> -->
+                                            <!-- <span class="cart-plus">+</span> -->
+                                            {{i.quantity}}
+                                      </td>
+                                      <!-- <td class="product-subtotal"><span class="amount">$130.00</span></td> -->
+                                      <td class="product-remove"><a href="{% url 'items_delete' i.product_name %}"><i class="fa fa-times"></i></a></td>
+                                   </tr>
+                                 {% endfor %}
+                                 
+                              </tbody>
+                           </table>
+                           
+                       </div>
+                       <!-- <div class="row">
+                          <div class="col-12">
+                                <div class="coupon-all">
+                                   <div class="coupon">
+                                      <input id="coupon_code" class="input-text" name="coupon_code" value=""
+                                            placeholder="Coupon code" type="text">
+                                      <button class="tp-btn" name="apply_coupon" type="submit">Apply
+                                            coupon</button>
+                                   </div>
+                                   <div class="coupon2">
+                                      <button class="tp-btn" name="update_cart" type="submit">Update cart</button>
+                                   </div>
+                                </div>
+                          </div>
+                       </div> -->
+                       <div class="row justify-content-end">
+                          <div class="col-md-5 ">
+                                <div class="cart-page-total">
+                                   <!-- <h2>Cart totals</h2>
+                                   <ul class="mb-20">
+                                      <li>Subtotal <span>$250.00</span></li>
+                                      <li>Total <span>$250.00</span></li>
+                                   </ul> -->
+                                   <button class="tp-btn">Proceed to checkout</button>
+                                </div>
+                                {% else %}
+                           <div class="text-center">
+                              <a href="{% url 'products_search' %}" class="btn btn-outline-primary btn-lg">Add Products to RFQ List</a>
+                           </div>
+                           {% endif %}
+                          </div>
+                       </div>
+                    </form>
+              </div>
+           </div>
+           </div>
+        </section>
+        <!-- cart area end-->
+
+     </main>
+     <!-- main-area-end -->
+
+
+{% endblock %}

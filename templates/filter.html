@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block content %}
+
+{% include 'category_section.html' %}
+
+
+<section>
+  <div class="university-1x">
+    <div class="edufair-course-1x university-course-1x">
+      <div class="container">
+        <div class="row" id="data">
+          {% if data %}
+          {% for category in data %}
+          <div class="col-md-4">
+            <a href="{% url 'filter_products' category %}" style="color: black">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <b
+                    >{{category}}
+                    <div class="pull-right">
+                      <i class="fa-solid fa-flask-vial fa-beat-fade"></i>
+                    </div>
+                  </b>
+                </li>
+              </ul>
+            </a>
+          </div>
+          {% endfor %}
+          {% else %}
+          <h1 class="text-center">No Products Available</h1> 
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <script>
+  $(document).ready(function(){
+  $('.btn').click(function(){
+    let aid;
+    aid=$(this).attr("href");
+    let A=document.getElementsByClassName('btn');
+    let last = aid.split("/")[2];
+    $.ajax({
+      url: `/filter_category/${last}`,
+      type: "get",
+      datatype: "json",
+
+      success: function(res){
+        console.log(res)
+        document.getElementById('data').innerHTML = res;
+      }
+    });
+    // console.log(aid);
+    // let A=document.getElementsByClassName('btn');
+    // let last = aid.split("/")[2]
+    // console.log(last)
+    // let aja = $.ajax(`/filter_category/${last}`,type="get");
+    // console.log(aja);
+  });
+  })
+</script> -->
+<script>
+  var getlink = document.getElementById('pageproductlink');
+  getlink.classList.add('active');
+</script>
+
+
+{% endblock%}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'category_section.html' %}
+
+<section>
+  <div class="university-1x">
+    <div class="edufair-course-1x university-course-1x">
+      <div class="container">
+        
+        <div class="row" id='data'>
+          {% for products in data %}
+          <div class="col-md-3 stackshow" data-stock="Please Enquire">
+            <div class="card">
+              <a class="product-title text-decoration-none" href="#"> <h5 class="card-title">{{products.product_name}}</h5> </a>
+              <div class="card-body">
+                <picture>
+                  <img src="{{products.product_image.url}}" class="img-fluid w-100" alt="Bacitracin" />
+                </picture>
+              </div>
+              <div class="card-footer product-footer">
+                <div class="product_dics">
+                  <ul class="list-unstyled">
+                    <li>CAT. No.<span>{{products.cat_no}}</span></li>
+                    <li>CAS. No.<span>{{products.cas_number}}</span></li>
+                    <li>Mol. F.<span>{{products.molecular_formula}}</span></li>
+                    <li>Mol. W.<span>{{products.molecular_weight}}</span></li>
+                    <li class="text-green">Stock Status:<span class="text-green">{{products.inventory_status}}</span></li>
+                  </ul>
+                </div>
+                <div class="col-12">
+                  <div class="buy-btn">
+                    <div class="view-btn">
+                      <a href="{% url 'product_view' products.slug_id %}"><i class="fa-regular fa-eye"></i> View </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var getlink = document.getElementById('pageproductlink')
+  getlink.classList.add('active')
+</script>
+
+{% endblock%}
