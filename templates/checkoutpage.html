@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+    <h1>Confirm Your Products</h1>
+    <table class="table my-5">
+            <thead>
+               <tr>
+                  <th class="cart-product-name">Product</th>
+                  <!-- <th class="product-price">Unit Price</th> -->
+                  <th class="product-quantity">Quantity</th>
+                  <!-- <th class="product-subtotal">Total</th> -->
+               </tr>
+            </thead>
+            <tbody>
+             {% for i in cart_items %}
+               <tr>
+                  <td class="product-name">
+                    <a href="#">{{i.product_name}}</a></td>
+                  <!-- <td class="product-price">
+                    <span class="amount">$130.00</span></td> -->
+                  <td class="product-quantity">
+                        <!-- <span class="cart-minus">-</span> -->
+                        <!-- <input class="cart-input" type="text" value="1"/> -->
+                        <!-- <span class="cart-plus">+</span> -->
+                        {{i.quantity}}
+                  </td>
+                  <!-- <td class="product-subtotal"><span class="amount">$130.00</span></td> -->
+               </tr>
+             {% endfor %}
+             
+          </tbody>
+       </table>
+    </div>
+{% endblock %}

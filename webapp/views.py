@@ -143,6 +143,23 @@ class contact(View):
     def get(self,request):
         return render(request,'contact.html')
     
+    def post(self,request):
+        name = request.POST['name']
+        email = request.POST['email']
+        phone_no = request.POST['phone_no']
+        message = request.POST['message']
+
+        data = Contact_Us.objects.create(name=name,email=email,phone_no=phone_no,message=message)
+
+        if data:
+            messages.success(request,"Form Submitted")
+            return redirect('home')
+        else:
+            messages.error(request,'Form not Submitted,Try Again')
+            return redirect('contact')
+
+
+    
     
 def add2cart(request,slug):
     if request.user.is_authenticated:
@@ -175,3 +192,12 @@ class cart(View):
 def cart_items_delete(request,pname):
     RFQ_list.objects.get(Q(product_name=pname) & Q(ordered_by=request.user)).delete()
     return redirect('cart')
+
+
+class CheckOut(View):
+    def get(self,request):
+        if RFQ_list.objects.filter(ordered_by=request.user).exists():
+          cart_items = RFQ_list.objects.filter(ordered_by=request.user)  
+          return render(request,'checkoutpage.html',{'cart_items':cart_items})
+        else:
+            return redirect('cart')

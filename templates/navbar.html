@@ -39,10 +39,10 @@
                        <ul>
                           <li><a id="pagehomelink" href="{% url 'home' %}">Home</a></li>
                           <li><a id="pageaboutlink" href="{% url 'about' %}">ABOUT US</a></li>
-                          <li><a href="{% url 'products_search' %}">PRODUCTS</a></li>
-                          <li><a href="#">SERVICES</a></li>
-                          <li ><a href="{% url 'Facility' %}">FACILITY</a></li>
-                          <li><a href="{% url 'contact' %}">Contact</a></li>
+                          <li><a id="productpagelink" href="{% url 'products_search' %}">PRODUCTS</a></li>
+                          <!-- <li><a href="#">SERVICES</a></li> -->
+                          <li ><a id="facilitypage" href="{% url 'Facility' %}">FACILITY</a></li>
+                          <li><a id="contactpage" href="{% url 'contact' %}">Contact</a></li>
                        </ul>
                     </nav>
                  </div>
@@ -59,7 +59,7 @@
                               <li>
                                  <div class="tpcarticon__checkout-link">
                                     <a href="{% url 'cart' %}">Shopping Cart</a>
-                                    <a class="sec-red-btn" href="#">Checkout</a>
+                                    <a class="sec-red-btn" href="{% url 'checkout' %}">Checkout</a>
                                 </div>
                               </li>
                            </ul>
