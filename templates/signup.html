@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- <div class="container my-5">
+    
+    <form action="" method="post" enctype="multipart/form-data">  
+    {% csrf_token %}
+        <label for="full_name">Username</label>
+        <input type="text" name="username" class="form-control" required id="username">
+        <label for="">Email</label>
+        <input type="email" name="email_id" class="form-control" required id="email">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" required id="password">
+        <label for="comfirmpassword">Confirm Password</label>
+        <input type="password" name="password2" class="form-control" required step="any" id="comfirmpassword">
+        <div class="col-12 text-center mt-3">
+            <button style="margin: auto;" class="btn btn-success">Signup</button>
+        </div>
+
+</div> -->
+
+<section class="signup">
+  <div class="container">
+    <div class="row login_row p-0">
+      <div class="col-md-6 p-lg-5 p-md-0 p-sm-0">
+        <div class="login_img">
+          <img src="{% static 'images/loginbanner.avif' %}" alt="" class="img-fluid" />
+        </div>
+      </div>
+      <div class="col-md-6 p-lg-5 p-md-0 p-sm-0 login_from">
+        <h2>Signup</h2>
+        <div class="d-flex justify-content-center form_container">
+          <form id="loginForm" method="post" action="" novalidate="novalidate">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="email" id="username" name="username" class="form-control input_user" value="" required placeholder="Username" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+              </div>
+              <input type="email" id="username" name="email" class="form-control input_user" value="" required placeholder="Email" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+              </div>
+              <input type="number" id="phonenumber" name="mobile" class="form-control input_user" value="" required placeholder="Phone Number" />
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa fa-key"></i></span>
+              </div>
+              <input type="password" id="password" name="password" class="form-control input_pass" value="" required placeholder="password" />
+            </div>
+            <div class="input-group mb-2">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fa fa-key"></i></span>
+              </div>
+              <input type="password" id="password" name="password2" class="form-control input_pass" value="" required placeholder="Confirm Pasword" />
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 login_container">
+              <button type="submit" name="button" class="btn login_btn">Signup</button>
+            </div>
+            <div class="signupbtn">
+                Already have an Account
+                <a href="{% url 'login' %}"><u>Login here...</u></a>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

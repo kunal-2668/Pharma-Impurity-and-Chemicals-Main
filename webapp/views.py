@@ -5,8 +5,10 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate , login , logout
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mail,EmailMessage
 from django.db.models import Q
+from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class Home(View):
@@ -96,7 +98,7 @@ class G_online_quote(View):
           "kunal00.kr@gmail.com",
           [f"{email_id}"],
           fail_silently=False,
-        )
+        ) 
 
         return redirect('home')
       
@@ -127,6 +129,33 @@ class loginView(View):
             messages.error(request,'Invalid Email/Password Try Again!!')
             return redirect('login')
         
+class Signupview(View):
+    def get(self,request):
+        return render(request,'signup.html')
+    
+    def post(self,request):
+        username = request.POST['username']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+
+        if password == password2:
+            
+            if User.objects.filter(username=username).exists():
+                messages.warning(request,'Username Already Exists')
+                return redirect('signup')
+
+            elif User.objects.filter(email=email).exists():
+                messages.warning(request,'Email Already Exists')
+                return redirect('signup')
+            
+            else:
+                User.objects.create_user(username=username,email=email,mobile=mobile,password=password)
+                messages.success(request,"Account Created")
+                redirect('login')
+        else:
+            return redirect('signup')
 
 class logoutView(View):
     def get(self,request):
@@ -158,9 +187,7 @@ class contact(View):
             messages.error(request,'Form not Submitted,Try Again')
             return redirect('contact')
 
-
-    
-    
+@login_required(login_url="login")
 def add2cart(request,slug):
     if request.user.is_authenticated:
       if request.method == "POST":
@@ -188,16 +215,34 @@ class cart(View):
         else:
             return redirect('login')
 
-
+@login_required(login_url="login")
 def cart_items_delete(request,pname):
     RFQ_list.objects.get(Q(product_name=pname) & Q(ordered_by=request.user)).delete()
     return redirect('cart')
 
-
-class CheckOut(View):
+class CheckOutConfirm(View):
+    @login_required(login_url="login")
     def get(self,request):
         if RFQ_list.objects.filter(ordered_by=request.user).exists():
           cart_items = RFQ_list.objects.filter(ordered_by=request.user)  
           return render(request,'checkoutpage.html',{'cart_items':cart_items})
         else:
             return redirect('cart')
+
+@login_required(login_url="login")    
+def checkOut(request):
+    if RFQ_list.objects.filter(ordered_by=request.user).exists():
+        cart_items = RFQ_list.objects.filter(ordered_by=request.user)
+        context = {"cart_items":cart_items}
+        messsage = get_template('checkoutdone.html').render(context)
+        msg = EmailMessage(
+          "Order details recieved",
+          # f"We recieved your Order for\n Product Name : {i.product_name} \n  Quantity : {i.quantity} \n \n we will Contact you soon with the Next Update \n Thank You for Choosing Pharma Impurity and Chemicals",
+          messsage,
+          "kunal00.kr@gmail.com",
+          [f"{request.user}","kunal00.kr@gmail.com"],
+          # fail_silently=False,
+          )
+        msg.content_subtype ="html"
+        msg.send()
+        return redirect('cart')
