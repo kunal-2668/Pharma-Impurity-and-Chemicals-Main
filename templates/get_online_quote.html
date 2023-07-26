@@ -7,33 +7,33 @@
                 <form action="" method="post" enctype="multipart/form-data">  
                     {% csrf_token %}
                 <label for="full_name">Full Name</label>
-                <input type="text" name="full_name" class="form-control" required id="full_name">
+                <input type="text" name="full_name" class="form-control border" required id="full_name">
                 <label for="">Email</label>
-                <input type="email" name="email_id" class="form-control" required id="full_name">
+                <input type="email" name="email_id" class="form-control border" required id="full_name">
                 <label for="company_name">Company Name</label>
-                <input type="text" name="company_name" class="form-control" required id="company_name">
+                <input type="text" name="company_name" class="form-control border" required id="company_name">
                 <label for="contact_no">Contact Number</label>
-                <input type="number" name="contact_no" class="form-control" required step="any" id="contact_no">
+                <input type="number" name="contact_no" class="form-control border" required step="any" id="contact_no">
             </div>
             <div class="col-lg-6 p-4">
                 <label for="">Product Name</label>
-                <input type="text" name="product_name" class="form-control" required id="">
+                <input type="text" name="product_name" class="form-control border" required id="">
                 <label for="">Chemical Name</label>
-                <input type="text" name="chemical_name" class="form-control" required id="">
+                <input type="text" name="chemical_name" class="form-control border" required id="">
                 <label for="">CAS Number</label>
-                <input type="text" name="cas_number" class="form-control" required id="">
+                <input type="text" name="cas_number" class="form-control border" required id="">
                 <label for="">Structure</label>
-                <input type="file" name="structure" class="form-control" id="">
+                <input type="file" name="structure" class="form-control border" id="">
             </div>
             <div class="row text-center">
                 <!-- <div class="col  p-1"> -->
                     <label for="">Quantity</label>
                     <div class="row justify-content-center">
                         <div class="col-5">
-                            <input type="number" name="count" class="form-control" >
+                            <input type="number" name="count" class="form-control border" >
                         </div>
                         <div class="col-5 " style="padding-left: 30px;">
-                            <select name="quantity" id="" class="form-control"required>
+                            <select name="quantity" id="" class="form-control border"required>
                                 <option value="MG">MG</option>
                                 <option value="G">G</option>
                                 <option value="KG">KG</option>
