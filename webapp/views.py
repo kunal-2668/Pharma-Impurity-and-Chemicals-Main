@@ -187,6 +187,7 @@ class contact(View):
             messages.error(request,'Form not Submitted,Try Again')
             return redirect('contact')
 
+
 @login_required(login_url="login")
 def add2cart(request,slug):
     if request.user.is_authenticated:
@@ -242,11 +243,12 @@ def checkOut(request):
           "kunal00.kr@gmail.com",
           [f"{request.user}","kunal00.kr@gmail.com"],
           # fail_silently=False,
-          )
+        )
         msg.content_subtype ="html"
         msg.send()
         return redirect('cart')
-    
+    else:
+        return redirect('cart')
 
 class SearchProduct(View):
     def get(self,request):
