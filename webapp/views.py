@@ -234,7 +234,7 @@ class CheckOutConfirm(View):
 def checkOut(request):
     if RFQ_list.objects.filter(ordered_by=request.user).exists():
         cart_items = RFQ_list.objects.filter(ordered_by=request.user)
-        context = {"cart_items":cart_items}
+        context = {"cart_items":cart_items,"user":request.user.username}
         messsage = get_template('checkoutdone.html').render(context)
         msg = EmailMessage(
           "Order details recieved",
