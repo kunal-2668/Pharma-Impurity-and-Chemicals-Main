@@ -246,3 +246,18 @@ def checkOut(request):
         msg.content_subtype ="html"
         msg.send()
         return redirect('cart')
+    
+
+class SearchProduct(View):
+    def get(self,request):
+        data = Impurity_Chemicals.objects.all().order_by('?')
+        return render(request,'searchproduct.html',{'data':data})
+
+    def post(self,request):
+        searchinp = request.POST['searchinp']
+        if Impurity_Chemicals.objects.filter(product_name__contains=searchinp).exists():
+            data = Impurity_Chemicals.objects.filter(product_name__contains=searchinp)
+            return render(request,'searchproduct.html',{'data':data})
+        else:
+            messages.warning(request,'No search Result')
+            return redirect('search')
