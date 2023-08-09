@@ -250,7 +250,7 @@ def checkOut(request):
     else:
         return redirect('cart')
 
-class SearchProduct(View):
+class SearchProductnoapi(View):
     def get(self,request):
         data = Impurity_Chemicals.objects.all().order_by('?')
         return render(request,'searchproduct.html',{'data':data})
@@ -264,7 +264,14 @@ class SearchProduct(View):
             messages.warning(request,'No search Result')
             return redirect('search')
 
-def Searchapi(request,name):
+
+def searchpage(request):
+    data = Impurity_Chemicals.objects.all().order_by('?')
+    return render(request,'searchproduct.html',{'data':data})
+
+
+
+def SearchProduct(request,name):
     if Impurity_Chemicals.objects.filter(product_name__contains=name).exists():
         data = Impurity_Chemicals.objects.filter(product_name__contains=name)
         
@@ -309,8 +316,3 @@ def Searchapi(request,name):
     else:
         a = """<h1 class="text-center my-2">No Product Found</h1>"""
         return JsonResponse(a,safe=False)
-    
-
-def searchpage(request):
-    data = Impurity_Chemicals.objects.all().order_by('?')
-    return render(request,'searchproduct.html',{'data':data})
