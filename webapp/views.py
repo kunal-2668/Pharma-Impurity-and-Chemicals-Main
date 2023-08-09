@@ -263,3 +263,49 @@ class SearchProduct(View):
         else:
             messages.warning(request,'No search Result')
             return redirect('search')
+
+def Searchapi(request,name):
+    if Impurity_Chemicals.objects.filter(product_name__contains=name).exists():
+        data = Impurity_Chemicals.objects.filter(product_name__contains=name)
+        
+        b = ''
+        l = {}
+
+        for i in data:
+            product_name = i.product_name
+            product_image= i.product_image.url
+            slug_id =i.slug_id
+            i = str(i)
+            l[i]=i
+            b += f"""
+              <div class="col-md-3 stackshow" data-stock="Please Enquire">
+                  <div class="card">
+                    <a class="product-title text-decoration-none" href="product_view/{slug_id}"> <h5 class="card-title">{product_name}</h5> </a>
+                    <div class="card-body">
+                      <picture>
+                        <img src="{product_image}" class="img-fluid w-100" alt="Bacitracin" />
+                      </picture>
+                    </div>
+                    <div class="card-footer product-footer">
+                      <div class="product_dics">
+                        <ul class="list-unstyled">
+                        </ul>
+                      </div>
+                      <div class="col-12">
+                        <div class="buy-btn">
+                          <div class="view-btn">
+                            <a href="product_view/{slug_id}"><i class="fa-regular fa-eye"></i> View </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+              """
+            print(product_name)
+
+        return JsonResponse(b,safe=False)
+
+    else:
+        a = """<h1 class="text-center my-2">No Product Found</h1>"""
+        return JsonResponse(a,safe=False)

@@ -2,14 +2,33 @@
 
 <div class="container my-5">
   <div class="searchdiv text-center w-75 mx-auto my-5">
-    <form action="" method="post">
+    <form action="{% url 'search' %}" method="post">
       {% csrf_token %}
-      <input type="text" name="searchinp" class="form-control border" placeholder="Search Products" id="" required />
+      <input type="text" name="searchinp" class="form-control border" onclick="onkeyup()" placeholder="Search Products" id="srcinp" required />
       <br />
       <button type="submit" class="btn btn-outline-success">Search</button>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+       async function func11(){
+        let url = '{% url "search" %}'
+        let val = document.getElementById('srcinp').value 
+          await axios.get(url+"/"+val).then((res)=>{
+            console.log(res.data)
+            document.getElementById('fetchdata').innerHTML=res.data
+          })
+      }
+    </script>
   </div>
   <hr />
+
+  <div class="container">
+    <div class="row" id="fetchdata">
+
+    </div>
+  </div>
+
+  
   <div class="row my-5">
     {% for products in data %}
     <div class="col-md-3 stackshow" data-stock="Please Enquire">
