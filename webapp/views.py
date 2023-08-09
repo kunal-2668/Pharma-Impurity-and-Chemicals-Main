@@ -272,8 +272,8 @@ def searchpage(request):
 
 
 def SearchProduct(request,name):
-    if Impurity_Chemicals.objects.filter(product_name__contains=name).exists():
-        data = Impurity_Chemicals.objects.filter(product_name__contains=name)
+    if Impurity_Chemicals.objects.filter(product_name__startswith=name).exists():
+        data = Impurity_Chemicals.objects.filter(product_name__startswith=name)
         
         b = ''
         l = {}
