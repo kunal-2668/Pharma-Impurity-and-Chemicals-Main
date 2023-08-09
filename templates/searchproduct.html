@@ -2,7 +2,7 @@
 
 <div class="container my-5">
   <div class="searchdiv text-center w-75 mx-auto my-5">
-    <form action="{% url 'search' %}" method="post">
+    <form action="{% url 'searchnoapi' %}" method="post">
       {% csrf_token %}
       <input type="text" name="searchinp" class="form-control border" onkeyup="func11()" placeholder="Search Products" id="srcinp" required />
       <br />

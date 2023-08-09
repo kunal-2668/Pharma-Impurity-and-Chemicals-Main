@@ -309,3 +309,8 @@ def Searchapi(request,name):
     else:
         a = """<h1 class="text-center my-2">No Product Found</h1>"""
         return JsonResponse(a,safe=False)
+    
+
+def searchpage(request):
+    data = Impurity_Chemicals.objects.all().order_by('?')
+    return render(request,'searchproduct.html',{'data':data})
