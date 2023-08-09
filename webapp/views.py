@@ -290,7 +290,7 @@ def SearchProduct(request,name):
                     <a class="product-title text-decoration-none" href="product_view/{slug_id}"> <h5 class="card-title">{product_name}</h5> </a>
                     <div class="card-body">
                       <picture>
-                        <img src="{product_image}" class="img-fluid w-100" alt="Bacitracin" />
+                        <img src="{product_image}" class="img-fluid w-100" alt="Bacitracin" style="object-fit: contain; height: 150px;" />
                       </picture>
                     </div>
                     <div class="card-footer product-footer">
