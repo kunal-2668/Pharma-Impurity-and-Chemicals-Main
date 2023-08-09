@@ -33,7 +33,7 @@
     {% for products in data %}
     <div class="col-md-3 stackshow" data-stock="Please Enquire">
       <div class="card">
-        <a class="product-title text-decoration-none" href="#"> <h5 class="card-title">{{products.product_name}}</h5> </a>
+        <a class="product-title text-decoration-none" href="{% url 'product_view' products.slug_id %}"> <h5 class="card-title">{{products.product_name}}</h5> </a>
         <div class="card-body">
           <picture>
             <img src="{{products.product_image.url}}" class="img-fluid w-100" alt="Bacitracin" style="object-fit: contain; height: 150px;" />
