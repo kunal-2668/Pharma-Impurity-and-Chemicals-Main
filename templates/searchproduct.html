@@ -4,7 +4,7 @@
   <div class="searchdiv text-center w-75 mx-auto my-5">
     <form action="{% url 'search' %}" method="post">
       {% csrf_token %}
-      <input type="text" name="searchinp" class="form-control border" onclick="onkeyup()" placeholder="Search Products" id="srcinp" required />
+      <input type="text" name="searchinp" class="form-control border" onkeyup="func11()" placeholder="Search Products" id="srcinp" required />
       <br />
       <button type="submit" class="btn btn-outline-success">Search</button>
     </form>
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  
+
   <div class="row my-5">
     {% for products in data %}
     <div class="col-md-3 stackshow" data-stock="Please Enquire">
